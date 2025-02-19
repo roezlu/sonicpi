@@ -1,0 +1,44 @@
+use_bpm 168
+#STRANGER THINGS THEME TOTAL SLEEP = 4
+use_synth :saw
+live_loop :stranger do
+  play :c4, amp: 0.5
+  sleep 0.5
+  play :e4, amp: 0.5
+  sleep 0.5
+  play :g4, amp: 0.5
+  sleep 0.5
+  play :b4, amp: 0.5
+  sleep 0.5
+  play :c5, amp: 0.5
+  sleep 0.5
+  play :b4, amp: 0.5
+  sleep 0.5
+  play :g4, amp: 0.5
+  sleep 0.5
+  play :e4, amp: 0.5
+  sleep 0.5
+end
+#808s TOTAL SLEEP =2
+live_loop :crashout do
+  sample :bd_808, amp: 4
+  sleep 2
+end
+
+sleep 8 #WAIT here so i can ONLY hear the 1st live_loop
+#Total sleep=4
+live_loop :spooky do
+  sample :ambi_choir,rate: 0.115, pitch:15, amp: 0.8
+  sleep 4
+end
+#total sleep=4
+live_loop :perc do
+  sample :perc_snap2, rate: 0.25, amp: 0.4
+  sleep 4
+end
+
+
+
+
+
+
