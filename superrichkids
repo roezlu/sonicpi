@@ -1,0 +1,18 @@
+use_bpm 60
+use_synth :organ_tonewheel
+live_loop :tune do
+  play :c4 , amp: 0.75
+  play :d4, amp: 0.75
+  play :f4, amp: 0.75
+  play :a4, amp: 0.75
+  sleep 2
+end
+live_loop :circle do
+  play :d3
+  sleep 2
+end
+
+
+
+sleep 4
+
