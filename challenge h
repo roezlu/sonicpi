@@ -1,0 +1,124 @@
+define :song do |note1,note2|
+  play note1
+  play note2
+  sleep 0.5
+end
+
+define :measure2 do
+  play :c5
+  play :c6
+  sleep 0.5
+  
+  play :c5
+  play :c6
+  sleep 0.5
+  
+  play :e5
+  play :e6
+  sleep 0.5
+  
+  play :c5
+  play :c6
+  sleep 0.5
+  
+  play :g5
+  play :g6
+  sleep 0.5
+  
+  play :c4
+  play :c5
+  sleep 0.5
+  
+  play :e5
+  play :e6
+  sleep 0.5
+  
+  play :c4
+  play :c5
+  sleep 0.5
+end
+
+define :c5c6 do
+  play :c5
+  play :c6
+  sleep 0.5
+end
+define :a4a5 do
+  play :a4
+  play :a5
+  sleep 0.5
+end
+define :d5d6 do
+  play :d5
+  play :d6
+  sleep 0.5
+end
+define :g4g5 do
+  play :g4
+  play :g5
+  sleep 0.5
+end
+
+define:b4b5 do
+  play :b4
+  play :b5
+  sleep 0.5
+end
+define:f4f5 do
+  play :f4
+  play :f5
+  sleep 0.5
+end
+
+
+
+
+
+
+use_bpm 160
+use_synth :chiplead
+
+# MEASURE 1 ---------------------------
+a4a5
+a4a5
+c5c6
+a4a5
+d5d6
+a4a5
+
+play :e5
+play :e6
+sleep 0.5
+
+d5d6
+
+
+
+#MEASURE 2 ---------------------------
+song :c5,:c6
+song :c5,:c6
+song :e5,:e6
+song :c5, :c6
+song :g5, :g6
+song :c4, :c5
+song :e5, :e6
+song :c4, :c4
+
+# MEASURE 3 ---------------------------
+g4g5
+g4g5
+b4b5
+g4g5
+c5c6
+g4g5
+d5d6
+c5c6
+# MEASURE 4 ---------------------------
+f4f5
+f4f5
+a4a5
+f4f5
+c5c6
+f4f5
+c5c6
+b4b5
