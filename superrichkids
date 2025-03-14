@@ -1,18 +1,52 @@
-use_bpm 60
-use_synth :organ_tonewheel
-live_loop :tune do
-  play :c4 , amp: 0.75
-  play :d4, amp: 0.75
-  play :f4, amp: 0.75
-  play :a4, amp: 0.75
+#SUPERRICHKIDSSSSSS
+use_bpm 120
+use_synth :bass_foundation
+#SAMPLES
+vocals1="C:/Users/roberto_lucha/Desktop/vocals.wav" #toomany
+vocals3="C:/Users/roberto_lucha/Documents/Audacity/verse3.wav" #parents
+vocals2="C:/Users/roberto_lucha/Documents/Audacity/verse2.wav" #earl
+x=0
+#functions
+vocalarray=[vocals1,vocals2,vocals3]
+
+define :measures do |note1,note2,note3,note4,note5|
+  play note1, amp: 0.75
+  play note2, amp: 0.75
+  play note3, amp: 0.75
+  play note4, amp: 0.75
+  play note5, amp: 0.75
   sleep 2
 end
-live_loop :circle do
-  play :d3
-  sleep 2
+#SONGNOW-----------------------------------------------------------
+#every 4
+live_loop :drum do
+  sample :drum_heavy_kick
+  sleep 4
 end
-
-
-
-sleep 4
-
+#plays all vocals
+live_loop :vocals do
+  sample(vocalarray[x])
+  x=x+1
+  sleep 16
+end
+#measure1---------------------
+8.times do
+  measures :cb4,:db4,:f4, :ab4,:db3
+end
+#measure2-------------------
+8.times do
+  measures :ab3, :db4, :eb4, :gb4,:cb3
+end
+#measure3
+4.times do
+  measures :gb4,:eb4,:cb4,:ab3,:cb3
+end
+#hear both vocals at the same time,rhyming
+sample vocals3
+8.times do
+  measures :ab4,:f4,:cb4,:cb3,:r
+end
+live_loop :drum do
+  stop
+end
+sample  :perc_bell
