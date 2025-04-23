@@ -1,0 +1,159 @@
+#supercooldj mix
+use_bpm 120
+use_synth :bass_foundation
+#SAMPLES
+vocals1="C:/Users/roberto_lucha/Desktop/vocals.wav" #toomany
+vocals3="C:/Users/roberto_lucha/Documents/Audacity/verse3.wav" #parents
+vocals2="C:/Users/roberto_lucha/Documents/Audacity/verse2.wav" #earl
+classic="C:/Users/roberto_lucha/Downloads/voice-tag-hood-classic_88bpm_E_minor (1).wav"
+news="C:/Users/roberto_lucha/Downloads/ytmp3free.cc_welcome-to-bloxburg-tv-news-channel-music-roblox-youtubemp3free.org (1).wav"
+pollo="C:/Users/roberto_lucha/Downloads/ytmp3free.cc_don-pollo-bla-bla-bla-ble-ble-ble-youtubemp3free.org.wav"
+i=0
+x=0
+#functions
+vocalarray=[vocals1,vocals2,vocals3]
+gltvocals=[news,pollo]
+define :measures do |note1,note2,note3,note4,note5|
+  play note1, amp: 0.75
+  play note2, amp: 0.75
+  play note3, amp: 0.75
+  play note4, amp: 0.75
+  play note5, amp: 0.75
+  sleep 2
+end
+#song2
+define :right do |n1,n2|#right hand keys
+  use_synth :piano
+  play n1
+  sleep 1.5
+  play n2
+  sleep 2
+  sleep 0.5
+end
+
+define :leftpiano do |note1, note2, note3, note4,note5,note6,note7|
+  use_synth :piano #leftpianokeys
+  play note1 , amp: 0.75
+  play note2 ,  amp: 0.75
+  play note3 , amp: 0.75
+  play note4 , amp: 0.75
+  sleep 1.5
+  play note5, amp: 0.75
+  play note6,  amp: 0.75
+  play note7,  amp: 0.75
+  sleep 2
+  sleep 0.5
+end
+
+
+#SONGNOW-----------------------------------------------------------
+#every 4
+sample classic
+sleep 1
+live_loop :drum do
+  sample :drum_heavy_kick
+  sleep 4
+end
+#plays all vocals
+live_loop :vocals do
+  sample(vocalarray[x])
+  x=x+1
+  sleep 16
+end
+#measure1
+8.times do
+  measures :cb4,:db4,:f4, :ab4,:db3
+end
+#measure2
+8.times do
+  measures :ab3, :db4, :eb4, :gb4,:cb3
+end
+#measure3
+4.times do
+  measures :gb4,:eb4,:cb4,:ab3,:cb3
+end 
+
+sample vocals3
+8.times do
+  measures :ab4,:f4,:cb4,:cb3,:r
+end
+live_loop :drum do
+  stop
+end
+sample classic, rate:2
+#song2
+use_bpm 60
+use_synth :piano
+
+sleep 0.75
+play :b2
+sleep 0.25
+play :b2
+sleep 0.25
+sleep 0.25
+play :a2
+sleep 0.5
+#----------------------------------
+live_loop :a do
+  leftpiano :f5, :d5, :b4,:g4,:g4,:e4,:c4
+  leftpiano :e5, :c5, :a4,:f4,:f4,:d4,:b3
+end
+live_loop :b do
+  right :g2,:d2
+  right :f2,:c2
+end
+
+use_synth  :hollow
+play :g4
+sleep 0.25
+play :a4
+sleep 0.25
+play :b4
+sample pollo, rate: 0.30,  amp: 0.25
+sleep 0.25
+sleep 0.25
+play :a4
+sleep 1
+play :c5
+sleep 1.5
+play :a4
+sleep 0.5
+#----------------------
+sleep 1
+play :b4
+sleep 1
+play :d5
+sleep 0.25
+play :c5
+sleep 0.25
+sleep 0.5
+sleep 1
+#----------------
+sleep 1
+play :a4
+sleep 1
+play :c5
+sleep 1.5
+play :a4
+sleep 0.5
+#----------
+sleep 0.5
+sleep 0.5
+play :b4,  amp: 0.60
+sleep 1
+play :d5,  amp: 0.40
+sleep 0.25
+play :c5 ,  amp: 0.30
+sleep 0.25
+sleep 0.5
+sleep 0.5
+play :a4 ,  amp: 0.25
+live_loop :a do
+  stop
+end
+live_loop :b do
+  stop
+end
+live_loop :vocals do
+  stop
+end
